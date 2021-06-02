@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using XamarinDepartamentos.Base;
 using XamarinDepartamentos.Models;
 using XamarinDepartamentos.Services;
+using XamarinDepartamentos.Views;
 
 namespace XamarinDepartamentos.ViewModels
 {
@@ -54,8 +55,14 @@ namespace XamarinDepartamentos.ViewModels
                 return new Command(async(dept) =>
                 {
                     Departamento departamento = dept as Departamento;
-                    await Application.Current.MainPage.DisplayAlert
-                    ("Alert", "Detalles " + departamento.Localidad, "OK");
+                    DepartamentoViewModel viewmodel =
+                    App.ServiceLocator.DepartamentoViewModel;
+                    viewmodel.Departamento = departamento;
+                    DetailsDepartamentoView view =
+                    new DetailsDepartamentoView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
                 });
             }
         }
@@ -67,8 +74,14 @@ namespace XamarinDepartamentos.ViewModels
             {
                 return new Command(async(dept) => {
                     Departamento departamento = dept as Departamento;
-                    await Application.Current.MainPage.DisplayAlert
-                    ("Alert", "Modificar " + departamento.Localidad, "OK");
+                    DepartamentoViewModel viewmodel =
+                    App.ServiceLocator.DepartamentoViewModel;
+                    viewmodel.Departamento = departamento;
+                    EditDepartamentoView view =
+                    new EditDepartamentoView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
                 });
             }
         }
