@@ -20,7 +20,7 @@ namespace XamarinDepartamentos
         {
             InitializeComponent();
 
-            MainPage = new DepartamentosView();
+            MainPage = new MainDepartamentos();
         }
 
         protected override void OnStart()

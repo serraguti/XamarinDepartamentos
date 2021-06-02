@@ -45,7 +45,12 @@ namespace XamarinDepartamentos
 
         private void ListviewMenu_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            MenuPageItem item =
+                e.SelectedItem as MenuPageItem;
+            Type tipo = item.Tipo;
+            Detail =
+                new NavigationPage((Page)Activator.CreateInstance(tipo));
+            IsPresented = false;
         }
     }
 }
