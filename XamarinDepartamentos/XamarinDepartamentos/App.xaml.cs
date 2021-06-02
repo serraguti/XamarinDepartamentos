@@ -16,6 +16,7 @@ namespace XamarinDepartamentos
                 return _ServiceLocator = _ServiceLocator ?? new ServiceIoC();
             }
         }
+
         public App()
         {
             InitializeComponent();

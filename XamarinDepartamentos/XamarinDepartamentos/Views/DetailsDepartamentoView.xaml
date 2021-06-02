@@ -4,15 +4,15 @@
              x:Class="XamarinDepartamentos.Views.DetailsDepartamentoView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding IdDepartamento
+            <Label Text="{Binding Departamento.IdDepartamento
                 , StringFormat='Id departamento: {0}'}"
                 VerticalOptions="Start" 
                    FontSize="25"
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding Nombre, StringFormat='Nombre: {0}'}"
+            <Label Text="{Binding Departamento.Nombre, StringFormat='Nombre: {0}'}"
                    FontSize="25" TextColor="Blue"
                    HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding Localidad, StringFormat='Localidad: {0}'}"
+            <Label Text="{Binding Departamento.Localidad, StringFormat='Localidad: {0}'}"
                    FontSize="25" TextColor="Red"
                    HorizontalOptions="CenterAndExpand" />
         </StackLayout>
