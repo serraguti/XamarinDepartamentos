@@ -8,7 +8,7 @@ using XamarinDepartamentos.Base;
 using XamarinDepartamentos.Models;
 using XamarinDepartamentos.Services;
 
-namespace XamarinDepartamentos
+namespace XamarinDepartamentos.ViewModels
 {
     public class DepartamentosViewModel: ViewModelBase
     {
@@ -21,6 +21,11 @@ namespace XamarinDepartamentos
             {
                 await this.CargarDepartamentosAsync();
             });
+            MessagingCenter.Subscribe<DepartamentosViewModel>
+                (this, "RELOAD", async (sender) =>
+                {
+                    await this.CargarDepartamentosAsync();
+                });
         }
 
         private ObservableCollection<Departamento> _Departamentos;
@@ -55,7 +60,8 @@ namespace XamarinDepartamentos
             }
         }
 
-        public Command ModificarDepartamento
+        //COMANDO PARA MOSTRAR LA VENTANA DE EDICION
+        public Command EditarDepartamento
         {
             get
             {

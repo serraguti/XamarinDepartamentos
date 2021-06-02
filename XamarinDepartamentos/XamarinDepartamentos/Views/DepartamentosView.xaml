@@ -28,7 +28,7 @@
                                 <Button Text="Editar"
                                         HorizontalOptions="End"
                                         CommandParameter="{Binding .}"
-                                        Command="{Binding BindingContext.ModificarDepartamento
+                                        Command="{Binding BindingContext.EditarDepartamento
                                     , Source={x:Reference PageDepartamentosView}}"/>
                             </StackLayout>
                         </ViewCell>
